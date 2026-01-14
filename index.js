@@ -88,8 +88,9 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cors({
-  origin: "*",   // for testing
-}));
+    origin: "*", // or your frontend domain
+    methods: ["GET", "POST"],
+  }));
 
 app.post('/api/info', function (request, response, next) {
   response.json({
