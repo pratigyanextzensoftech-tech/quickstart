@@ -323,7 +323,8 @@ app.post('/api/set_access_token', function (request, response, next) {
       });
       prettyPrintResponse(tokenResponse);
       console.log(tokenResponse,"tokenResponse");
-      
+      req.session.access_token = tokenResponse.data.access_token;
+  req.session.item_id = tokenResponse.data.item_id;
       ACCESS_TOKEN = tokenResponse.data.access_token;
       ITEM_ID = tokenResponse.data.item_id;
       response.json({
